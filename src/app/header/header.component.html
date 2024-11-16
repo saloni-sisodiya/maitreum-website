@@ -1,0 +1,301 @@
+<!-- <header class="bg-white shadow-md px-12 flex items-center justify-between">
+  
+  <div class="flex items-center gap-4">
+    <img src="assets/images/company-logo.png" alt="Company Logo" class="md-4">
+    <div class="flex flex-col">
+      <span class="text-2xl font-bold text-gray-800">Maitreum Technologies</span>
+      <span class="text-sm text-gray-600">One Point Solution</span>
+    </div>
+  </div>
+
+  
+  <div class="flex items-center gap-10">
+    
+    <nav class="hidden md:flex gap-8 text-gray-700 text-lg">
+      <a href="#" (click)="setActiveLink('home')" 
+         [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'home' }" 
+         class="hover:text-purple-600 px-2 py-1">Home</a>
+      <a href="#" (click)="setActiveLink('about')" 
+         [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'about' }" 
+         class="hover:text-gray-900 px-2 py-1">About Us</a>
+      <a href="#" (click)="setActiveLink('services')" 
+         [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'services' }" 
+         class="hover:text-gray-900 px-2 py-1">Services</a>
+      <a href="#" (click)="setActiveLink('technology')" 
+         [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'technology' }" 
+         class="hover:text-gray-900 px-2 py-1">Technology</a>
+    </nav>
+
+    
+    <a href="#" class="hidden md:inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg px-6 py-3 rounded-full hover:shadow-lg">
+      Contact Us
+    </a>
+  </div>
+  
+    <div class="md:hidden cursor-pointer" (click)="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+  
+    
+    <div *ngIf="menuOpen" class="absolute top-full left-0 right-0 bg-white shadow-md md:hidden z-10">
+      <nav class="flex flex-col p-4 gap-4 text-gray-700 font-medium">
+        <a href="#" class="hover:text-purple-600">Home</a>
+        <a href="#" class="hover:text-gray-900">About Us</a>
+        <a href="#" class="hover:text-gray-900">Services</a>
+        <a href="#" class="hover:text-gray-900">Technology</a>
+        <a href="#" class="hover:text-gray-900">Join Us</a>
+        <a href="#" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-4 py-2 rounded-full text-center">Contact Us</a>
+      </nav>
+    </div>
+  </header> -->
+
+
+  <!-- yaha se slindin menu hain -->
+  <header class="bg-white shadow-md px-12 flex items-center justify-between">
+    <!-- Left Section: Logo and Company Name -->
+    <div class="flex items-center gap-4">
+      <img src="assets/images/company-logo.png" alt="Company Logo" class="md-4">
+      <div class="flex flex-col">
+        <span class="text-2xl font-bold text-gray-800">Maitreum Technologies</span>
+        <span class="text-sm text-gray-600">One Point Solution</span>
+      </div>
+    </div>
+  
+    <!-- Right Section: Navigation Links and Contact Us Button -->
+    <div class="flex items-center gap-10">
+      <!-- Navigation Links (Desktop View) -->
+      <nav class="hidden md:flex gap-8 text-gray-700 text-lg">
+        <a href="#" (click)="setActiveLink('home')" 
+           [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'home' }" 
+           class="hover:text-purple-600 px-2 py-1">Home</a>
+        <a href="#" (click)="setActiveLink('about')" 
+           [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'about' }" 
+           class="hover:text-gray-900 px-2 py-1">About Us</a>
+
+        <!-- Services Dropdown Menu -->
+        <div class="relative group">
+          <a href="#" (click)="setActiveLink('services')" 
+             [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'services' }" 
+             class="hover:text-gray-900 px-2 py-1 flex items-center">
+            Services
+          </a>
+
+  <!-- Dropdown Menu with Icons (Sliding Effect on Hover) -->
+  <div class="absolute left-0 top-full hidden group-hover:flex flex-col bg-white shadow-lg rounded-lg mt-1 w-56 py-2 transition-transform transform-gpu group-hover:scale-y-100 scale-y-0 origin-top duration-300 ease-out">
+    <ng-container *ngFor="let service of services">
+      <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-purple-100 hover:text-purple-600 rounded transition-colors duration-200">
+        <img [src]="service.icon" alt="{{ service.title }}" class="h-5 w-5" />
+        <span class="text-sm font-medium">{{ service.title }}</span>
+      </a>
+    </ng-container>
+  </div>
+</div>
+
+  
+        <a href="#" (click)="setActiveLink('technology')" 
+           [ngClass]="{ 'text-purple-600 font-bold': activeLink === 'technology' }" 
+           class="hover:text-gray-900 px-2 py-1">Technology</a>
+      </nav>
+  
+      <!-- Contact Us Button -->
+      <a href="#" class="hidden md:inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg px-6 py-3 rounded-full hover:shadow-lg">
+        Contact Us
+      </a>
+    </div>
+    
+    <!-- Hamburger Icon (Mobile View) -->
+    <div class="md:hidden cursor-pointer" (click)="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+  
+    <!-- Mobile Navigation Menu -->
+    <div *ngIf="menuOpen" class="absolute top-full left-0 right-0 bg-white shadow-md md:hidden z-10">
+      <nav class="flex flex-col p-4 gap-4 text-gray-700 font-medium">
+        <a href="#" class="hover:text-purple-600">Home</a>
+        <a href="#" class="hover:text-gray-900">About Us</a>
+        <a href="#" class="hover:text-gray-900">Services</a>
+        <a href="#" class="hover:text-gray-900">Technology</a>
+        <a href="#" class="hover:text-gray-900">Join Us</a>
+        <a href="#" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-4 py-2 rounded-full text-center">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+  
+
+
+  
+<!-- Hero Section
+<section class="bg-white-100 py-10" id="hero">
+  <div class="container mx-auto px-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-14">
+    <div class="md:w-1/2">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+        <span class="block text-orange-500 text-5xl md:text-6xl mt-4">Your Strategic Partner</span>
+        <span class="block text-red-600 text-5xl md:text-6xl mt-4">in Digital Transformation</span> 
+        <span class="text-black-900 text-5xl md:text-6xl mt-4">and Innovation</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-800 mt-10">
+        
+        We provide tailored technology solutions to drive growth, enhance efficiency, and ensure lasting success for your business.
+      </p>
+      <a href="#services" class="mt-8 inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold px-6 py-3 rounded-full hover:shadow-lg">
+        Get Started
+      </a>
+      
+      <div class="md:w-1/2 flex flex-col">
+        <img src="assets/images/Hero-section.png" alt="Digital Transformation" >
+        
+      </div>
+      
+    </div>
+    <div class="md:w-1/2">
+      <img src="assets/images/home-pic.png" alt="Digital Transformation" class="w-full h-auto">
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Hero Section -->
+<section class="bg-white-100 py-10" id="hero">
+  <div class="container mx-auto px-6 md:px-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-14">
+    
+    <!-- Text Content -->
+    <div class="md:w-1/2 space-y-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+        <span class="block text-orange-500 text-5xl md:text-6xl mt-4">Your Strategic Partner</span>
+        <span class="block text-red-600 text-5xl md:text-6xl mt-4">in Digital Transformation</span> 
+        <span class="block text-black text-5xl md:text-6xl mt-4">and Innovation</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-700">
+        We provide tailored technology solutions to drive growth, enhance efficiency, and ensure lasting success for your business.
+      </p>
+      
+      <a href="#services" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold px-6 py-3 rounded-full hover:shadow-lg transition">
+        Get Started
+      </a>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 md:mt-0" id="feature-cards">
+        <div *ngFor="let feature of features" class="bg-gray-50 hover:bg-slate-100 rounded-xl p-4 flex flex-col items-center gap-4 border border-gray-200 shadow-sm transition-transform transform hover:scale-105">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-opacity-20" [ngStyle]="{'background-color': feature.bgColor}">
+            <img [src]="feature.icon" alt="{{ feature.title }}" />
+          </div>
+          <div class="text-lg font-semibold text-center">{{ feature.title }}</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Feature Cards -->
+    
+    <div class="md:w-1/2">
+      <img src="assets/images/home-pic.png" alt="Digital Transformation" class="w-full h-auto">
+    </div>
+  </div>
+  
+  <!-- Images Section -->
+  
+   
+
+</section>
+
+
+
+<!-- About Us Section
+<section class="py-10 bg-gray-50" id="about">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+    <p class="text-lg text-gray-600">
+      Our mission is to be more than just a service provider – we are your trusted partner in digital transformation. At Maitreum, we understand your unique industry challenges and work closely with you to execute strategies efficiently and effectively.
+    </p>
+  </div>
+</section>
+
+
+<section class="py-10" id="services">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+    <p class="text-lg text-gray-600 mb-8">Explore how we can transform your business with our innovative services.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="service-item">Website Development</div>
+      <div class="service-item">Web Application Development</div>
+      <div class="service-item">Mobile Application Development</div>
+      <div class="service-item">Cloud Solutions</div>
+      <div class="service-item">UI/UX Design</div>
+      <div class="service-item">Digital Marketing</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-10 bg-gray-50" id="values">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Values</h2>
+    <p class="text-lg text-gray-600 mb-8">We believe in a customer-centric approach, innovation, and maintaining integrity and excellence in all we do.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>Customer-Centricity</div>
+      <div>Innovation</div>
+      <div>Integrity</div>
+      <div>Excellence</div>
+      <div>Collaboration</div>
+      <div>Accountability</div>
+      <div>Sustainability</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-10" id="why-choose-us">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Maitreum?</h2>
+    <p class="text-lg text-gray-600">We are more than just a technology provider; we are a strategic partner committed to helping you navigate the ever-changing digital landscape.</p>
+  </div>
+</section>
+
+
+<section class="py-10 bg-gray-50" id="testimonials">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <blockquote class="text-lg text-gray-600">"Maitreum's solutions have significantly boosted our productivity."</blockquote>
+      <blockquote class="text-lg text-gray-600">"Their expertise in digital transformation has been invaluable."</blockquote>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-10" id="contact">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+    <p class="text-lg text-gray-600 mb-8">Have a question or want to discuss your project? We’re here to help.</p>
+    <form class="space-y-4 max-w-md mx-auto">
+      <input type="text" placeholder="First Name" class="w-full px-4 py-2 border rounded">
+      <input type="text" placeholder="Last Name" class="w-full px-4 py-2 border rounded">
+      <input type="email" placeholder="Work Email" class="w-full px-4 py-2 border rounded">
+      <input type="text" placeholder="Company" class="w-full px-4 py-2 border rounded">
+      <input type="text" placeholder="Job Title" class="w-full px-4 py-2 border rounded">
+      <textarea placeholder="What can we help you with?" class="w-full px-4 py-2 border rounded"></textarea>
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-full">Submit</button>
+    </form>
+    <p class="text-gray-600 mt-4">Or contact us at <a href="mailto:contact@maitreum.com" class="text-purple-600">contact@maitreum.com</a></p>
+  </div>
+</section> -->
+
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-8">
+  <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+    <p>&copy; 2024 Maitreum Technologies</p>
+    <nav class="flex gap-4 mt-4 md:mt-0">
+      <a href="#" class="text-white hover:underline">Home</a>
+      <a href="#about" class="text-white hover:underline">About Us</a>
+      <a href="#services" class="text-white hover:underline">Services</a>
+      <a href="#contact" class="text-white hover:underline">Contact</a>
+    </nav>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <a href="#" class="text-white hover:text-gray-400">LinkedIn</a>
+      <a href="#" class="text-white hover:text-gray-400">Twitter</a>
+    </div>
+  </div>
+</footer>
